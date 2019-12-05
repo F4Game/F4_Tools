@@ -14,7 +14,6 @@ class GitCommitMsg:
         print(self.root_path)
         print(self.commit_file_path)
         print(self.commit_msg)
-
 if __name__ == '__main__':
     hook_obj = GitCommitMsg(sys.argv)
     hook_obj.Print()

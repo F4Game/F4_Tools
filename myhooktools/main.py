@@ -10,4 +10,3 @@ if __name__ == '__main__':
     hook_obj.Print()
     hook_obj.CheckCode()
 
-
