@@ -4,7 +4,6 @@ import sys
 class CommitMsgException(Exception):
     pass
 
-
 class GitCommitMsg:
 
     def __init__(self, args):
