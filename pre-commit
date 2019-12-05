@@ -1,0 +1,14 @@
+#!/usr/bash
+
+echo "=====================pre-commit========================"
+
+rootpath=$(cd "$(dirname "$0")";cd ../../; pwd)   #代码路径
+commit_file=$(git diff --cached --name-only)      #提交代码的文件列表
+check_path="/myhooktools/main.py"
+$python $rootpath$check_path $rootpath $commit_file
+echo "========================end============================"
+result=$?
+if [ $result -eq 0 ];then
+    echo -e "\033[31m \t\t Please check the code \033[0m"
+    exit 1
+fi
