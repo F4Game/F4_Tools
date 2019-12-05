@@ -9,14 +9,12 @@ class PreHookException(Exception):
 class GitPreHook:
 
     def __init__(self, args):
-        self.root_path = args[0]
-        self.commit_file_path = args[1]
-        self.commit_msg = args[2]
+        self.root_path = args[1]
+        self.commit_file_path = args[2]
 
     def Print(self):
         print(self.root_path)
-        print("commit_file_path",self.commit_file_path)
-        print(self.commit_msg)
+        print("commit_file_path->>>>>>>>>>",self.commit_file_path)
 
     def CheckCode(self):
         pass
