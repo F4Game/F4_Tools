@@ -6,6 +6,11 @@ import ast
 __all__ = ["GitPreHook"]
 
 
+def IsCheckFile(filename):
+    if filename.find("myhooktools"):
+        return False
+    return True
+
 class GitPreHook:
 
     def __init__(self, args):
@@ -16,10 +21,12 @@ class GitPreHook:
         for _file_name in self._commit_file_path:
             filename = self._root_path + "/" + _file_name
             print("filename",filename)
+            if not self.IsCheckFile(filename):
+                continue
+            print("filename",filename)
             with open(filename,"r",encoding='UTF-8') as fp:
                 _file_context=fp.read()
                 _file_node_tree = ast.parse(_file_context)
-                print("123")
                 _ast_check_obj = ast_check.Vistator()
                 _ast_check_obj.visit(_file_node_tree)
 
