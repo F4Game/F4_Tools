@@ -17,3 +17,8 @@ class GitPreHook:
         print(self.root_path)
         print(self.commit_file_path)
         print(self.commit_msg)
+
+    def CheckCode(self):
+        for file_name in self.commit_file_path:
+            with open(self.root_path+"/"+file_name) as fp:
+                print(fp.read())
