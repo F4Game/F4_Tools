@@ -6,7 +6,7 @@ class PreHookException(Exception):
     def __init__(self, info):
         self.err_info = info
 
-class Vistator(ast.NodeVisitor):
+class Vistitor(ast.NodeVisitor):
 
     def visit_Print(self):
         raise PreHookException("code find print!!!")
@@ -22,7 +22,7 @@ class Vistator(ast.NodeVisitor):
         pass
 
     def generic_visit(self,node):
-        super(Vistator,self).generic_visit(node)
+        super(Vistitor,self).generic_visit(node)
 
     def visit(self, node):
-        super(Vistator,self).visit(node)
+        super(Vistitor,self).visit(node)

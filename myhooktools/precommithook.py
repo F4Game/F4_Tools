@@ -29,7 +29,7 @@ class GitPreHook:
                 with open(filename, "r", encoding='UTF-8') as fp:
                     _file_context = fp.read()
                     _file_node_tree = ast.parse(_file_context)
-                    _ast_check_obj = ast_check.Vistator()
+                    _ast_check_obj = ast_check.Vistitor()
                     _ast_check_obj.visit(_file_node_tree)
             except ast_check.PreHookException as e:
                 print("\033[0;31;40m \t%s \033[0m" % e.err_info)
