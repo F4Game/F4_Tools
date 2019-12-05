@@ -19,7 +19,7 @@ class PreHookException(Exception):
     def __init__(self, info):
         self.err_info = info
 
-class Vistator(ast.NodeVisitor):
+class Vistitor(ast.NodeVisitor):
 
     def visit_Print(self):
         raise PreHookException("code find print!!!")
@@ -84,7 +84,7 @@ def add(arg1, arg2):
     print(arg1+arg2)
 """
 expr_ast = ast.parse(expr)
-v = CVistor()
+v = Vistitor()
 v.visit(expr_ast)
 node_tree = ast.dump(expr_ast)
 
