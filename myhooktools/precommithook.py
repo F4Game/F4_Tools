@@ -20,7 +20,7 @@ class GitPreHook:
     def CheckCode(self):
         for _file_name in self._commit_file_path:
             filename = self._root_path + "/" + _file_name
-            print("filename",filename)
+            print("check - file:",filename)
             if not IsCheckFile(filename):
                 continue
             print("filename",filename)

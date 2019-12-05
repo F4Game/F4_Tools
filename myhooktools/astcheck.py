@@ -7,11 +7,12 @@ class PreHookException(Exception):
 
 class Vistator(ast.NodeVisitor):
 
-    def visit_Print(self,node):
+    def visit_Print(self):
         raise PreHookException("code find print!!!")
 
     def visit_Name(self,node):
-        pass
+        if node.id == "print":
+            self.visit_Print()
 
     def visit_arg(self,node):
         pass
