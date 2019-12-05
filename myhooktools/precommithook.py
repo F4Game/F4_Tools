@@ -7,7 +7,7 @@ __all__ = ["GitPreHook"]
 
 
 def IsCheckFile(filename):
-    if filename.find("myhooktools"):
+    if filename.find("myhooktools") != -1:
         return False
     return True
 
@@ -20,10 +20,9 @@ class GitPreHook:
     def CheckCode(self):
         for _file_name in self._commit_file_path:
             filename = self._root_path + "/" + _file_name
-            print("check - file:",filename)
             if not IsCheckFile(filename):
                 continue
-            print("filename",filename)
+            print("check - file:",filename)
             with open(filename,"r",encoding='UTF-8') as fp:
                 _file_context=fp.read()
                 _file_node_tree = ast.parse(_file_context)
