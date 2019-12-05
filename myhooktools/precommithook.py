@@ -17,8 +17,7 @@ class GitPreHook:
             with open(self._root_path + "/" + _file_name) as fp:
                 _file_context=fp.read()
                 _file_node_tree = ast.parse(_file_context)
-
+                print("123")
                 _ast_check_obj = ast_check.Vistator()
                 _ast_check_obj.visit(_file_node_tree)
 
-print("123")
