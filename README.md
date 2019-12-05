@@ -51,6 +51,120 @@ class Vistator(ast.NodeVisitor):
 
 来进行相应的筛选操作，例如这里对print进行了一个简单筛选，只要代码中存在print，则会直接对commit操作进行回撤。
 
+## 标签怎么查看
+
+```
+# 格式输出解析函数
+def nodeTree(node:str):
+    str2list = list(node.replace(' ', ''))
+    count = 0
+    for i, e in enumerate(str2list):
+        if e == '(':
+            count += 1
+            str2list[i] = '(\n{}'.format('|   ' * count)
+        elif e == ')':
+            count -= 1
+            str2list[i] = '\n{})'.format('|   ' * count)
+        elif e == ',':
+            str2list[i] = ',\n{}'.format('|   ' * count)
+        elif e == '[':
+            count += 1
+            str2list[i] = '[\n{}'.format('|   ' * count)
+        elif e == ']':
+            count -= 1
+            str2list[i] = '\n{}]'.format('|   ' * count)
+
+    return ''.join(str2list)
+
+expr = """
+@dec
+def add(arg1, arg2):
+    print(arg1+arg2)
+"""
+expr_ast = ast.parse(expr)
+v = CVistor()
+v.visit(expr_ast)
+node_tree = ast.dump(expr_ast)
+
+print(nodeTree(node_tree))
+
+---------------------------result-------------------------
+Module(
+|   body=[
+|   |   FunctionDef(
+|   |   |   name='add',
+|   |   |   args=arguments(
+|   |   |   |   args=[
+|   |   |   |   |   arg(
+|   |   |   |   |   |   arg='arg1',
+|   |   |   |   |   |   annotation=None
+|   |   |   |   |   ),
+|   |   |   |   |   arg(
+|   |   |   |   |   |   arg='arg2',
+|   |   |   |   |   |   annotation=None
+|   |   |   |   |   )
+|   |   |   |   ],
+|   |   |   |   vararg=None,
+|   |   |   |   kwonlyargs=[
+|   |   |   |   |   
+|   |   |   |   ],
+|   |   |   |   kw_defaults=[
+|   |   |   |   |   
+|   |   |   |   ],
+|   |   |   |   kwarg=None,
+|   |   |   |   defaults=[
+|   |   |   |   |   
+|   |   |   |   ]
+|   |   |   ),
+|   |   |   body=[
+|   |   |   |   Expr(
+|   |   |   |   |   value=Call(
+|   |   |   |   |   |   func=Name(
+|   |   |   |   |   |   |   id='print',
+|   |   |   |   |   |   |   ctx=Load(
+|   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   )
+|   |   |   |   |   |   ),
+|   |   |   |   |   |   args=[
+|   |   |   |   |   |   |   BinOp(
+|   |   |   |   |   |   |   |   left=Name(
+|   |   |   |   |   |   |   |   |   id='arg1',
+|   |   |   |   |   |   |   |   |   ctx=Load(
+|   |   |   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |   |   )
+|   |   |   |   |   |   |   |   ),
+|   |   |   |   |   |   |   |   op=Add(
+|   |   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |   ),
+|   |   |   |   |   |   |   |   right=Name(
+|   |   |   |   |   |   |   |   |   id='arg2',
+|   |   |   |   |   |   |   |   |   ctx=Load(
+|   |   |   |   |   |   |   |   |   |   
+|   |   |   |   |   |   |   |   |   )
+|   |   |   |   |   |   |   |   )
+|   |   |   |   |   |   |   )
+|   |   |   |   |   |   ],
+|   |   |   |   |   |   keywords=[
+|   |   |   |   |   |   |   
+|   |   |   |   |   |   ]
+|   |   |   |   |   )
+|   |   |   |   )
+|   |   |   ],
+|   |   |   decorator_list=[
+|   |   |   |   Name(
+|   |   |   |   |   id='dec',
+|   |   |   |   |   ctx=Load(
+|   |   |   |   |   |   
+|   |   |   |   |   )
+|   |   |   |   )
+|   |   |   ],
+|   |   |   returns=None
+|   |   )
+|   ]
+)
+```
+
+
 ## 具体效果
 
 ```shell
@@ -67,4 +181,3 @@ check - file: D:/github_pre_hook/test/test_print.py     code find print!!!
 ## 后续扩展
 
 还可以对 commit -m "desc" 中的desc进行检查，更有趣的可以对代码进行规范化
-
