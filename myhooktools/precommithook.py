@@ -14,7 +14,7 @@ class GitPreHook:
 
     def CheckCode(self):
         for _file_name in self._commit_file_path:
-            with open(self._root_path + "/" + _file_name) as fp:
+            with open(self._root_path + "/" + _file_name,"r") as fp:
                 _file_context=fp.read()
                 _file_node_tree = ast.parse(_file_context)
                 print("123")
