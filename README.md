@@ -14,7 +14,7 @@
 - 把 pre-commit 文件加入到 .git/hook/ 目录下
 - 针对ast库语法树，来对自己感兴趣的模块进行筛选
 
-```
+```python
 class PreHookException(Exception):
     def __init__(self, info):
         self.err_info = info
@@ -53,7 +53,7 @@ class Vistator(ast.NodeVisitor):
 
 ## 标签怎么查看
 
-```
+```python
 # 格式输出解析函数
 def nodeTree(node:str):
     str2list = list(node.replace(' ', ''))
