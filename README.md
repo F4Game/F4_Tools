@@ -76,6 +76,8 @@ def nodeTree(node:str):
 
     return ''.join(str2list)
 
+
+#########测试代码
 expr = """
 @dec
 def add(arg1, arg2):
