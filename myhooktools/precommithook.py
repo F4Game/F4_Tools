@@ -28,5 +28,4 @@ class GitPreHook:
                 _file_node_tree = ast.parse(_file_context)
                 _ast_check_obj = ast_check.Vistator()
                 _ast_check_obj.visit(_file_node_tree)
-            raise Exception
 
