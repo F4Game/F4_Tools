@@ -24,3 +24,4 @@ class GitPreHook:
 if __name__ == '__main__':
     hook_obj = GitPreHook(sys.argv)
     hook_obj.Print()
+
