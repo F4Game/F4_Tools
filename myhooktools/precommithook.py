@@ -30,7 +30,7 @@ class GitPreHook:
                     _ast_check_obj = ast_check.Vistator()
                     _ast_check_obj.visit(_file_node_tree)
             except ast_check.PreHookException as e:
-                print("\t",e.err_info)
+                print("\t"+'\033[%s！\033[1;31;40m'%e.err_info)
             except Exception as e:
                 raise e
             else:
