@@ -21,7 +21,6 @@ class GitPreHook:
         raise PreHookException(self.commit_msg)
 
 
-
 if __name__ == '__main__':
     hook_obj = GitPreHook(sys.argv)
     hook_obj.Print()
