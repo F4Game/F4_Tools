@@ -169,7 +169,7 @@ Module(
 
 ## 具体效果
 
-```shell
+```python
 =====================pre-commit========================
 check - file: D:/github_pre_hook/test/test_print.py     code find print!!!
 ========================end============================
