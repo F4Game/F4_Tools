@@ -3,13 +3,14 @@
 
 import sys
 
+
 class PreHookException(Exception):
     pass
 
 
 class GitPreHook:
 
-    def __init__(self,args):
+    def __init__(self, args):
         self.root_path = args[0]
         self.commit_file_path = args[1]
         self.commit_msg = args[2]
