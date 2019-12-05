@@ -9,5 +9,6 @@ import myhooktools.precommithook as commit
 
 if __name__ == '__main__':
     hook_obj = commit.GitPreHook(sys.argv)
-    hook_obj.CheckCode()
+    access = hook_obj.CheckCode()
+    sys.exit(access)
 

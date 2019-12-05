@@ -15,6 +15,7 @@ def IsCheckFile(filename):
 class GitPreHook:
 
     def __init__(self, args):
+        self.access = 1
         self._root_path = args[1]
         self._commit_file_path = args[2:]
 
@@ -32,7 +33,10 @@ class GitPreHook:
                     _ast_check_obj.visit(_file_node_tree)
             except ast_check.PreHookException as e:
                 print("\033[0;31;40m \t%s \033[0m" % e.err_info)
+                self.access = 0
             except Exception as e:
+                self.access = 0
                 raise e
             else:
                 print("")
+        return self.access
