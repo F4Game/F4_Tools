@@ -15,7 +15,6 @@ class GitPreHook:
     def Print(self):
         print(self.root_path)
         print("commit_file_path->>>>>>>>>>",self.commit_file_path)
-
     def CheckCode(self):
         pass
         # for file_name in self.commit_file_path:

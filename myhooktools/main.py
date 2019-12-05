@@ -5,7 +5,6 @@ root_path = sys.argv[1]
 sys.path.append(root_path)
 
 import myhooktools.precommithook as commit
-
 if __name__ == '__main__':
     hook_obj = commit.GitPreHook(sys.argv)
     hook_obj.Print()
