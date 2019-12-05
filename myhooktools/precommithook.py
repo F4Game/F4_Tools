@@ -21,7 +21,7 @@ class GitPreHook:
         for _file_name in self._commit_file_path:
             filename = self._root_path + "/" + _file_name
             print("filename",filename)
-            if not self.IsCheckFile(filename):
+            if not IsCheckFile(filename):
                 continue
             print("filename",filename)
             with open(filename,"r",encoding='UTF-8') as fp:
