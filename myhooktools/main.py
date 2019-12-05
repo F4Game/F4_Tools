@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import sys
-argv = sys.argv[1]
+argv = sys.argv
 
 sys.path.append(argv[1])
 import myhooktools.precommithook as commit
