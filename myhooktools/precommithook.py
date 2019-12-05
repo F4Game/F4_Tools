@@ -11,6 +11,7 @@ def IsCheckFile(filename):
         return False
     return True
 
+
 class GitPreHook:
 
     def __init__(self, args):
@@ -22,7 +23,7 @@ class GitPreHook:
             filename = self._root_path + "/" + _file_name
             if not IsCheckFile(filename):
                 continue
-            print("check - file:",filename,end="")
+            print("check - file:", filename, end="")
             try:
                 with open(filename, "r", encoding='UTF-8') as fp:
                     _file_context = fp.read()
@@ -30,10 +31,8 @@ class GitPreHook:
                     _ast_check_obj = ast_check.Vistator()
                     _ast_check_obj.visit(_file_node_tree)
             except ast_check.PreHookException as e:
-                print("\t"+'\033[%s！\033[1;31;40m'%e.err_info)
+                print("\ 033 [1;31;41m \t%s [\ 033 [0m]" % e.err_info)
             except Exception as e:
                 raise e
             else:
                 print("")
-
-
