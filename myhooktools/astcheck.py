@@ -3,7 +3,8 @@
 import ast
 
 class PreHookException(Exception):
-    pass
+    def __init__(self, info):
+        self.err_info = info
 
 class Vistator(ast.NodeVisitor):
 
