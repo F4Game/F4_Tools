@@ -11,7 +11,7 @@ class GitPreHook:
     def __init__(self, args):
         print("all ->>>>> args",args)
         self.root_path = args[1]
-        self.commit_file_path = args[2]
+        self.commit_file_path = args[2:]
 
     def Print(self):
         print(self.root_path)
