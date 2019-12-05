@@ -174,6 +174,22 @@ check - file: D:/github_pre_hook/test/test_print.py     code find print!!!
                  Please check the code
 ```
 
+```python
+test_print.py
+
+# -*- coding:utf-8 -*-
+print("test-print")
+
+
+def Print():
+    print("test-print")
+
+
+def test():
+    print = 1
+
+```
+
 ## 如何绕过检查
 
 > git commit -m "xxx" --no-verify
