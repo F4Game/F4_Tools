@@ -1,24 +1,24 @@
 # -*- coding:utf-8 -*-
 
-__all__= ["GitPreHook"]
+import myhooktools.astcheck as ast_check
+import ast
 
-class PreHookException(Exception):
-    pass
+__all__ = ["GitPreHook"]
 
 
 class GitPreHook:
 
     def __init__(self, args):
-        print("all ->>>>> args",args)
-        self.root_path = args[1]
-        self.commit_file_path = args[2:]
+        self._root_path = args[1]
+        self._commit_file_path = args[2:]
 
-    def Print(self):
-        print(self.root_path)
-        print("commit_file_path->>>>>>>>>>",self.commit_file_path)
     def CheckCode(self):
-        pass
-        # for file_name in self.commit_file_path:
-        #     print()
-        #     with open(self.root_path+"/"+file_name) as fp:
-        #         print(fp.read())
+        for _file_name in self._commit_file_path:
+            with open(self._root_path + "/" + _file_name) as fp:
+                _file_context=fp.read()
+                _file_node_tree = ast.parse(_file_context)
+
+                _ast_check_obj = ast_check.Vistator()
+                _ast_check_obj.visit(_file_node_tree)
+
+print("123")
