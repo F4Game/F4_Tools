@@ -6,10 +6,12 @@ import ast
 __all__ = ["GitPreHook"]
 
 
-def IsCheckFile(filename):
+def IsNotCheckFile(filename):
     if filename.find("myhooktools") != -1:
-        return False
-    return True
+        return True
+    if filename.find(".xml") != -1:
+        return True
+    return False
 
 
 class GitPreHook:
@@ -22,7 +24,7 @@ class GitPreHook:
     def CheckCode(self):
         for _file_name in self._commit_file_path:
             filename = self._root_path + "/" + _file_name
-            if not IsCheckFile(filename):
+            if IsNotCheckFile(filename):
                 continue
             print("check - file:", filename, end="")
             try:
@@ -36,6 +38,7 @@ class GitPreHook:
                 self.access = 0
             except Exception as e:
                 self.access = 0
+                print("xxxx")
                 raise e
             else:
                 print("")
