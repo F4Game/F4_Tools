@@ -1,11 +1,13 @@
 # -*- coding:utf-8 -*-
 import sys
+argv = sys.argv
+sys.path.append(argv[1])
 
 class GitCommitMsg:
 
     def __init__(self, args):
         self.access = 1
-        self._msg_info = args[1]
+        self._msg_info = args[2]
         print(self._msg_info)
 
     def CheckMsg(self):
