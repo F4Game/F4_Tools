@@ -16,7 +16,7 @@ class GitCommitMsg:
                 _msg_info = fp.read()
                 if len(_msg_info)<5:
                     self.access = 0
-                    print("\033[0;31;36m msg:\"%s\" len < 5 \033[0m" % str.strip(_msg_info), end="")
+                    print("\033[0;31;33m msg:\"%s\" len < 5 \033[0m" % str.strip(_msg_info), end="")
         except FileNotFoundError:
             print("\033[0;31;33m \t%s not find \033[0m" % ".git/COMMIT_EDITMSG")
             self.access = 0
@@ -24,7 +24,7 @@ class GitCommitMsg:
             self.access = 0
             raise e
         else:
-            print("\033[0;31;36m msg:\"%s\" len < 5 \033[0m" % str.strip(_msg_info), end="")
+            print("\033[0;31;36m msg:\"%s\" \033[0m" % str.strip(_msg_info))
         return self.access
 
 
