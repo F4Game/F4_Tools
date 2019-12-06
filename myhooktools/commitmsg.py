@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 import sys
-import myhooktools.astcheck as ast_check
 
 class GitCommitMsg:
 
