@@ -28,7 +28,7 @@ class GitPreHook:
             filename = self._root_path + "/" + _file_name
             if IsNotCheckFile(filename):
                 continue
-            print("\033[0;31;36m check - file:\"%s\" \033[0m" % str.strip(filename))
+            print("\033[0;31;36m check - file:\"%s\" \033[0m" % str.strip(filename),end="")
             try:
                 with open(filename, "r", encoding='UTF-8') as fp:
                     _file_context = fp.read()

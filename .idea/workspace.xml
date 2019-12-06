@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb98e19-9342-469c-9e70-31e4d549c38c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/.idea/test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/github_pre_hook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/github_pre_hook.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myhooktools/precommithook.py" beforeDir="false" afterPath="$PROJECT_DIR$/myhooktools/precommithook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test_print.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_print.py" afterDir="false" />
