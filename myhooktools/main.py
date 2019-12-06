@@ -11,4 +11,3 @@ if __name__ == '__main__':
     hook_obj = commit.GitPreHook(sys.argv)
     access = hook_obj.CheckCode()
     sys.exit(access)
-

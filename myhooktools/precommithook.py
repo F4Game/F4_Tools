@@ -38,10 +38,12 @@ class GitPreHook:
             except ast_check.PreHookException as e:
                 print("\033[0;31;40m \t%s \033[0m" % e.err_info)
                 self.access = 0
+            except FileNotFoundError as e:
+                print("\033[0;31;33m \t%s not find \033[0m" % filename)
             except Exception as e:
                 self.access = 0
-                print("xxxx")
                 raise e
             else:
                 print("")
         return self.access
+
