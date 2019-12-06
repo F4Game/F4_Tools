@@ -11,6 +11,8 @@ def IsNotCheckFile(filename):
         return True
     if filename.find(".xml") != -1:
         return True
+    if filename.find(".idea") != -1:
+        return True
     return False
 
 
