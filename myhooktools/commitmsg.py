@@ -6,6 +6,7 @@ class GitCommitMsg:
     def __init__(self, args):
         self.access = 1
         self._msg_info = args[1]
+        print(self._msg_info)
 
     def CheckMsg(self):
         if len(self._msg_info)<5:
