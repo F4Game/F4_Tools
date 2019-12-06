@@ -1,0 +1,15 @@
+#!/usr/bash
+
+echo "=====================commit-msg========================"
+
+rootpath=$(cd "$(dirname "$0")";cd ../../; pwd)   #代码路径
+check_path="/myhooktools/commitmsg.py"
+python $rootpath$check_path $rootpath $1
+result=$?
+echo "=========================end==========================="
+if [ $result -eq 0 ];then
+    echo -e "\033[31m \t\t Please check the msg rule \033[0m"
+    exit 1
+fi
+
+
