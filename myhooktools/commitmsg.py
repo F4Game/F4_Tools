@@ -24,7 +24,7 @@ class GitCommitMsg:
             self.access = 0
             raise e
         else:
-            print("")
+            print("\033[0;31;36m msg:\"%s\" len < 5 \033[0m" % str.strip(_msg_info), end="")
         return self.access
 
 
