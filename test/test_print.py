@@ -3,10 +3,8 @@ print("test-print")
 
 
 def Print():
-    print("test-print")
-
+	print("test-print")
 
 
 def test():
-    print = 1
-
+	print = 1
