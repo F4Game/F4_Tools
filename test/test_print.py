@@ -8,3 +8,4 @@ def Print():
 
 def test():
 	print = 1
+
