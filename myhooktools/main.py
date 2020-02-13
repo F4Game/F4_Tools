@@ -5,7 +5,7 @@ import sys
 argv = sys.argv
 
 sys.path.append(argv[1])
-import github_pre_hook.myhooktools.precommithook as commit
+import myhooktools.precommithook as commit
 
 if __name__ == '__main__':
 	hook_obj = commit.GitPreHook(sys.argv)
